@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        body {
+            
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+
+        }
+        .viewer-container {
+            background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  width: 400px;
+  margin-top: 20px;
+        }
+        label {
+          display: block;
+          margin-bottom: 20px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+        }
+        input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          box-sizing: border-box;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+        button {
+          background-color: #4caf50;
+          color: #fff;
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+        button:hover {
+          background-color: #45a049;
+        }
+        #content-container {
+          margin-top: 20px;
+        }
+        iframe {
+          width: 100%;
+          height: 300px;
+          border: none;
+          border-radius: 8px;
+        }
+        .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+      </style>  
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <h2 class="logo"> Webster extensions</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">EVENT</a></li>
+                
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+        
+
+        
+       
+        <div class="viewer-container">
+            <h1>Content Viewer</h1>
+        
+            <label for="contentUrl">Enter Content URL:</label>
+            <input type="text" id="contentUrl" name="contentUrl" placeholder="https://example.com/content" required>
+        
+            <button type="button" onclick="loadContent()">Load Content</button>
+        
+            <div id="content-container"></div>
+        </div>
+    </div>
+ 
+    <script>
+        function loadContent() {
+          var contentUrl = document.getElementById('contentUrl').value;
+          var contentContainer = document.getElementById('content-container');
+    
+          // Clear previous content
+          contentContainer.innerHTML = '';
+    
+          // Create new iframe element
+          var iframe = document.createElement('iframe');
+          iframe.src = contentUrl;
+          iframe.title = 'User-uploaded Content';
+    
+          // Append the iframe to the container
+          contentContainer.appendChild(iframe);
+        }
+      </script>
+</body>
+</html>

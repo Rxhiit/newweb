@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Center content vertically */
+            height: 100vh;
+            margin: 0;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navbar {
+            /* Your navbar styles here */
+        }
+        .menu {
+            /* Your menu styles here */
+        }
+        .uploader-container {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            width: 400px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        .custom-file-upload:hover {
+            background-color: #45a049;
+        }
+        #preview-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        #upload-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        #upload-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <h2 class="logo">Webster Extensions</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">EVENT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="uploader-container">
+            <h1>Image Uploader</h1>
+        
+            <label for="file-upload" class="custom-file-upload">Choose a File</label>
+            <input type="file" id="file-upload" accept="image/*" onchange="previewImage(event)">
+        
+            <div id="preview-container"></div>
+            <button id="upload-button" type="button" onclick="uploadImage()">Upload Image</button>
+        </div>
+    </div>
+
+ 
+    <script>
+        function previewImage(event) {
+            var input = event.target;
+            var previewContainer = document.getElementById('preview-container');
+            var file = input.files[0];
+
+            // Clear previous preview
+            previewContainer.innerHTML = '';
+
+            // Check if a file is selected
+            if (file) {
+                // Create new image element
+                var img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.alt = 'User-uploaded Image';
+
+                // Append the image to the container
+                previewContainer.appendChild(img);
+            }
+        }
+
+        function uploadImage() {
+            alert('Image uploaded!'); // You can replace this with your actual upload logic
+        }
+    </script>
+</body>
+</html>
